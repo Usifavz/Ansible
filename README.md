@@ -1,4 +1,4 @@
-# Ansible Nginx Practice Task
+## Ansible Nginx Practice Task
 
 This project shows how to use Ansible to set up a simple Nginx web server. 
  
