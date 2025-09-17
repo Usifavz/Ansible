@@ -1,21 +1,54 @@
 # Ansible Nginx Practice Task
 
-This playbook installs Nginx, deploys a simple HTML page, and ensures the service is running.
+This project shows how to use Ansible to set up a simple Nginx web server. 
+ 
+The playbook will:
 
-## ✅ Steps
+- Install **nginx** and **curl**
+- Ensure `/var/www/html` exists
+- Deploy a basic `index.html` page
+- Start and enable the nginx service
+- Print the final site URL
+
+---
+
+## Files
+
+- **inventory** → Inventory file with server connection details  
+- **site.yml** → Main Ansible playbook  
+- **ansible.cfg** → Ansible configuration file  
+- **Curl output on browser.jpg** → Example proof/screenshot  
+
+---
+
+## Requirements
+
+- Control machine with **Ansible installed**  
+- Target host: Ubuntu 20.04/22.04/24.04  
+- SSH access with `sudo` privileges  
+
+---
+
+## Run the Playbook
 
 1. Test connection:
+
    ```bash
-   ansible -i inventory.ini webservers -m ping
+   ansible -i inventory webservers -m ping
 
-2. Run playbook:
-   ```bash
-   ansible-playbook -i inventory.ini site.yml
+Run the playbook:
+ ```bash
+ ansible-playbook -i inventory site.yml
 
-3. Run again (should report changed=0):
-    ```bash
-   ansible-playbook -i inventory.ini site.yml
+Run again (should show changed=0):
+ ```bash
+ ansible-playbook -i inventory site.yml
 
-4. Verify in browser or via curl:
-      ```bash
-   curl http://SERVER_IP/
+
+## Verify Deployment
+ Browser:
+ Open http://<SERVER_IP>/
+
+Curl:
+ ```bash
+ curl http://<SERVER_IP>/
